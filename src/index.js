@@ -331,7 +331,11 @@ module.exports = React.createClass({
    * Scroll by index
    * @param  {number} index offset index
    */
-  scrollBy(index) {
+  scrollBy(index, animated) {
+    if (animated === undefined) {
+      animated = true;
+    }
+
     if (this.state.isScrolling || this.state.total < 2) return
     let state = this.state
     let diff = (this.props.loop ? 1 : 0) + index + this.state.index
@@ -345,13 +349,14 @@ module.exports = React.createClass({
     } else {
       this.refs.scrollView && this.refs.scrollView.scrollTo({
         y: y,
-        x: x
+        x: x,
+        animated: animated,
       })
     }
 
     // update scroll state
     this.setState({
-      isScrolling: true,
+      isScrolling: animated,
       autoplayEnd: false,
     })
 
@@ -509,6 +514,8 @@ module.exports = React.createClass({
         && prop !== 'onMomentumScrollEnd'
         && prop !== 'renderPagination'
         && prop !== 'onScrollBeginDrag'
+        && prop !== 'onChange'
+        && prop !== 'onScroll'
       ) {
         let originResponder = props[prop]
         props[prop] = (e) => originResponder(e, this.state, this)
