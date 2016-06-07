@@ -339,8 +339,12 @@ module.exports = _react2.default.createClass({
    * Scroll by index
    * @param  {number} index offset index
    */
-  scrollBy: function scrollBy(index) {
+  scrollBy: function scrollBy(index, animated) {
     var _this4 = this;
+
+    if (animated === undefined) {
+      animated = true;
+    }
 
     if (this.state.isScrolling || this.state.total < 2) return;
     var state = this.state;
@@ -355,13 +359,14 @@ module.exports = _react2.default.createClass({
     } else {
       this.refs.scrollView && this.refs.scrollView.scrollTo({
         y: y,
-        x: x
+        x: x,
+        animated: animated
       });
     }
 
     // update scroll state
     this.setState({
-      isScrolling: true,
+      isScrolling: animated,
       autoplayEnd: false
     });
 
