@@ -171,10 +171,6 @@ module.exports = React.createClass({
     this.props = this.injectState(this.props)
   },
 
-  componentWillReceiveProps(props) {
-    this.setState(this.initState(props))
-  },
-
   componentDidMount() {
     this.autoplay()
   },

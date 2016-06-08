@@ -184,9 +184,6 @@ module.exports = _react2.default.createClass({
   componentWillMount: function componentWillMount() {
     this.props = this.injectState(this.props);
   },
-  componentWillReceiveProps: function componentWillReceiveProps(props) {
-    this.setState(this.initState(props));
-  },
   componentDidMount: function componentDidMount() {
     this.autoplay();
   },
