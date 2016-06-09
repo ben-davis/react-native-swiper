@@ -512,6 +512,8 @@ module.exports = React.createClass({
         && prop !== 'onScrollBeginDrag'
         && prop !== 'onChange'
         && prop !== 'onScroll'
+        && prop !== 'onKeyboardDidHide'
+        && prop !== 'onKeyboardDidShow'
       ) {
         let originResponder = props[prop]
         props[prop] = (e) => originResponder(e, this.state, this)

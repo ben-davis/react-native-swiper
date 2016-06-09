@@ -532,7 +532,7 @@ module.exports = _react2.default.createClass({
 
     for (var prop in props) {
       // if(~scrollResponders.indexOf(prop)
-      if (typeof props[prop] === 'function' && prop !== 'onMomentumScrollEnd' && prop !== 'renderPagination' && prop !== 'onScrollBeginDrag' && prop !== 'onChange' && prop !== 'onScroll') {
+      if (typeof props[prop] === 'function' && prop !== 'onMomentumScrollEnd' && prop !== 'renderPagination' && prop !== 'onScrollBeginDrag' && prop !== 'onChange' && prop !== 'onScroll' && prop !== 'onKeyboardDidHide' && prop !== 'onKeyboardDidShow') {
         (function () {
           var originResponder = props[prop];
           props[prop] = function (e) {
