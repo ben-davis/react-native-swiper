@@ -211,6 +211,12 @@ module.exports = React.createClass({
     }
     return initState
   },
+  
+  componentWillReceiveProps(props) {
+    if (props.width !== this.props.width) {
+      this.setState(this.initState(props)); 
+    }
+  },
 
   /**
    * Automatic rolling
