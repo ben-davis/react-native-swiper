@@ -187,6 +187,11 @@ module.exports = _react2.default.createClass({
   componentDidMount: function componentDidMount() {
     this.autoplay();
   },
+  componentWillReceiveProps: function componentWillReceiveProps(props) {
+    if (props.width !== this.props.width) {
+      this.setState(this.initState(props));
+    }
+  },
   initState: function initState(props) {
     // set the current state
     var state = this.state || {};
